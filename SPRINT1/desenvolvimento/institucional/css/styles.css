@@ -489,22 +489,12 @@ footer {
     overflow: hidden;
 }
 
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.1;
-    z-index: 1;
-}
-
 .footer-content {
     position: relative;
     z-index: 2;
     max-width: 600px;
     width: 100%;
+    max-height: 260px;
 }
 
 .footer-logo img{
