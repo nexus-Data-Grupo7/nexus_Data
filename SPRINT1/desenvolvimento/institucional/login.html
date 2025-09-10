@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>NexusData - Login</title>
+</head>
+<body>
+    
+    <div class="container">
+        <section class="containerHomePage">
+
+            <nav class="navBar" id="navBar">
+
+                <div class="logoNav">
+                    <a href="index.html"><img class="logo" src="./imagens/logo.png" alt="Logo"></a>
+                    <a href="index.html"><img class="logoNexus" src="./imagens/logoNexus.png" alt="Nexus Logo"></a>
+                </div>
+
+
+                <ul class="navLinks">
+                    <li class="navLink">
+                        <a href="index.html#sobre">Quem somos</a>
+                    </li>
+                    <li class="navLink">
+                        <a href="index.html#servicos">Serviços</a>
+                    </li>
+                    <li class="navLink">
+                        <a href="index.html#valores">Valores</a>
+                    </li>
+                    <li class="navLink">
+                        <a href="index.html#time">Time</a>
+                    </li>
+                </ul>
+
+
+                <div class="botoes">
+                    <a href="login.html"><button class="estiloBotoes">Entrar</button></a>
+                    <a href="cadastro.html"><button class="estiloBotoes">Cadastro</button></a>
+                </div>
+            </nav>
+
+            <div class="homePageContainer">
+                <h2>Bem vindo de volta!</h2>
+
+                <div class="card card-cadastro">
+
+                    <div class="tipo-usuario" style="margin-bottom: 20px;">
+                        <label style="margin-right: 20px;">
+                            <input type="radio" name="tipoUsuario" value="jogador" checked onchange="alterarTipoLogin()"> Jogador
+                        </label>
+                        <label>
+                            <input type="radio" name="tipoUsuario" value="organizacao" onchange="alterarTipoLogin()"> Organizacao
+                        </label>
+                    </div>                    
+        
+                    <span>E-mail</span>
+                    <div class="input">
+                        <input type="text" id="input_email" placeholder="xpto@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+
+                    <span id="span_identificador">CPF</span>
+                    <div class="input">
+                        <input type="text" placeholder="CPF" id="input_identificador" required>
+                        <i class="fa-solid fa-file"></i>
+                    </div>
+
+                    <span>Senha</span>
+                    <div class="input">
+                        <input type="password" id="input_senha" placeholder="*******">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+
+                    <button class="botao" onclick="entrar()">Entrar</button> <br><br>
+
+                    <div class="cadastro">
+                        <span>Não possui cadastro?</span>
+                        <a href="cadastro.html">Cadastro</a>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </section>
+        
+    </div>
+
+
+    
+</body>
+</html>
+
+<script>
+    function alterarTipoLogin() {
+        const tipoSelecionado = document.querySelector('input[name="tipoUsuario"]:checked').value;
+        const inputIdentificador = document.getElementById('input_identificador');
+        const spanIdentificador = document.getElementById('span_identificador');
+        
+        if (tipoSelecionado === 'jogador') {
+            inputIdentificador.placeholder = 'CPF';
+            inputIdentificador.type = 'text';
+            spanIdentificador.innerText = 'CPF';
+        } else {
+            inputIdentificador.placeholder = 'CNPJ';
+            inputIdentificador.type = 'text';
+            spanIdentificador.innerText = 'CNPJ';
+        }
+        
+        inputIdentificador.value = '';
+    }
+
+</script>
